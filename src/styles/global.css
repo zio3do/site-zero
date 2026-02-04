@@ -1,17 +1,17 @@
 :root {
   color-scheme: dark;
-  --bg: #08121f;
-  --bg-alt: #111827;
-  --surface: #141b2e;
-  --surface-2: #1c243b;
-  --text: #f8fafc;
+  --bg: #0f0f0f;
+  --bg-alt: #1a1a1a;
+  --surface: #1a1a1a;
+  --surface-2: #242424;
+  --text: #ffffff;
   --text-muted: #b7c0d4;
-  --accent: #7afc58;
-  --accent-2: #e0665e;
-  --border: #2a3451;
-  --focus: #7afc58;
-  --shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
-  --radius: 14px;
+  --accent: #81FC57;
+  --accent-2: #3b82f6;
+  --border: #333333;
+  --focus: #81FC57;
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  --radius: 12px;
   --max-width: 1100px;
   --grid-gap: 24px;
   --font-display: "Press Start 2P", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
@@ -33,8 +33,7 @@ body {
 body {
   margin: 0;
   font-family: var(--font-body);
-  background: radial-gradient(120% 120% at 15% 10%, #17233a 0%, var(--bg) 55%),
-    radial-gradient(90% 80% at 85% 20%, #0d1a2d 0%, transparent 60%), var(--bg);
+  background: radial-gradient(circle at 20% 20%, #1a1a1a 0%, var(--bg) 50%), var(--bg);
   color: var(--text);
   line-height: 1.6;
 }
@@ -43,10 +42,10 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 40px 40px;
-  opacity: 0.2;
+  opacity: 0.15;
   pointer-events: none;
   z-index: 0;
 }
@@ -89,11 +88,17 @@ img {
 }
 
 .card {
-  background: linear-gradient(140deg, rgba(27, 39, 64, 0.9), rgba(13, 20, 36, 0.92));
+  background: var(--surface-2);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 24px;
   box-shadow: var(--shadow);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
 }
 
 .button,
@@ -106,7 +111,7 @@ button {
   border-radius: 999px;
   border: 1px solid transparent;
   background: var(--accent);
-  color: #08121f;
+  color: #0f0f0f;
   font-weight: 700;
   font-size: 0.95rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
@@ -129,10 +134,11 @@ button:hover {
   align-items: center;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(122, 252, 88, 0.15);
+  background: rgba(129, 252, 87, 0.12);
   color: var(--accent);
   font-weight: 600;
   font-size: 0.8rem;
+  border: 1px solid rgba(129, 252, 87, 0.2);
 }
 
 .muted {
@@ -163,7 +169,7 @@ button:hover {
   position: relative;
   border-radius: var(--radius);
   border: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(122, 252, 88, 0.12), rgba(224, 102, 94, 0.1));
+  background: linear-gradient(135deg, rgba(129, 252, 87, 0.08), rgba(59, 130, 246, 0.06));
   padding: 24px;
   min-height: 220px;
   display: grid;
@@ -177,12 +183,12 @@ button:hover {
   inset: 0;
   background: repeating-linear-gradient(
     0deg,
-    rgba(255, 255, 255, 0.05) 0px,
-    rgba(255, 255, 255, 0.05) 1px,
+    rgba(255, 255, 255, 0.03) 0px,
+    rgba(255, 255, 255, 0.03) 1px,
     transparent 2px,
-    transparent 6px
+    transparent 4px
   );
-  opacity: 0.3;
+  opacity: 0.4;
   pointer-events: none;
 }
 
@@ -197,7 +203,7 @@ header.site-header {
   top: 0;
   z-index: 10;
   backdrop-filter: blur(10px);
-  background: rgba(8, 18, 31, 0.8);
+  background: rgba(15, 15, 15, 0.85);
   border-bottom: 1px solid var(--border);
 }
 
@@ -248,7 +254,7 @@ details.nav-menu summary {
   padding: 10px 16px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: rgba(20, 27, 46, 0.9);
+  background: var(--surface);
   color: var(--text);
   font-weight: 600;
 }
@@ -287,7 +293,7 @@ details.nav-menu ul {
   top: -100px;
   left: 16px;
   background: var(--accent);
-  color: #08121f;
+  color: #0f0f0f;
   padding: 8px 12px;
   border-radius: 8px;
   z-index: 20;
